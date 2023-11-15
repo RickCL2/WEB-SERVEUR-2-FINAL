@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Réserver Atelier</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div class="container">
+    <h1>Réserver Atelier</h1>
+    <form th:action="@{/ateliers/reserver}" th:object="${reservation}" method="post">
+        <input type="hidden" th:field="*{atelier.id}" />
+        <div>
+            <label for="participant">Participant:</label>
+            <input type="text" id="participant" th:field="*{participant}" required />
+        </div>
+        <div>
+            <label for="dateTime">Date et Heure:</label>
+            <input type="datetime-local" id="dateTime" th:field="*{dateTime}" required />
+        </div>
+        <div>
+            <button type="submit">Réserver</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
